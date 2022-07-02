@@ -1,30 +1,62 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="common-layout">
+    <el-container>
+      <el-header height="60px">
+        <router-link to="/">
+          <img src="https://images.clwy.cn/common/logo.png" alt="" />
+        </router-link>
+      </el-header>
+      <el-container>
+        <el-aside width="200px"><Aside /></el-aside>
+        <el-container>
+          <el-main>
+            <router-view></router-view>
+          </el-main>
+          <el-footer height="60px"><h1>2022.6.29</h1></el-footer>
+        </el-container>
+      </el-container>
+    </el-container>
   </div>
-  <router-view />
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script lang="ts">
+import { defineComponent } from "vue";
+import Aside from "@/components/app/Aside.vue";
+export default defineComponent({
+  components: {
+    Aside,
+  },
+});
+</script>
+
+<style lang="scss" scoped>
+.common-layout {
+  min-width: 1600px;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+.main {
+  padding: 20px;
+  min-width: 1200px;
+  min-height: 550px;
+}
+.el-header,
+.el-footer {
+  background-color: rgb(225, 240, 240);
+  img {
+    margin-top: 10px;
+    height: 40px;
   }
+}
+.el-footer {
+  text-align: center;
+  line-height: 60px;
+}
+.el-aside {
+  border-right: solid 1px rgb(230, 230, 230);
+}
+* {
+  margin: 0;
+}
+.el-container {
+  height: calc(100vh - 60px);
 }
 </style>
