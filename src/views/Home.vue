@@ -1,3 +1,3 @@
-<template>1</template>
+<template>HOME</template>
 
 <script lang="ts"></script>
